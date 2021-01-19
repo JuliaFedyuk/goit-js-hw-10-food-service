@@ -22,6 +22,7 @@ const checkboxRef = document.querySelector('#theme-switch-toggle');
 const bodyRef = document.querySelector('body');
 
 bodyRef.classList.add('light-theme');
+saveTheme();
 
 function themeSwitcher(event) {
   if (event.target.checked) {
@@ -37,8 +38,10 @@ function themeSwitcher(event) {
 
 checkboxRef.addEventListener('change', themeSwitcher);
 
-const getTheme = localStorage.getItem('Theme');
-if (getTheme === 'dark-theme') {
-  checkboxRef.checked = true;
-  bodyRef.classList.add('dark-theme');
+function saveTheme() {
+  const getTheme = localStorage.getItem('Theme');
+  if (getTheme === 'dark-theme') {
+    checkboxRef.checked = true;
+    bodyRef.classList.add('dark-theme');
+  }
 }
